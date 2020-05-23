@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+#include<vector>
+using namespace std;
+
+
+int main()
+{
+    
+vector<int> v[100005];
+    int n, q, type, x, y;
+    cin>>n>>q;
+    int l = 0;
+    while(q--)
+    {
+        cin>>type>>x>>y;
+        if(type == 1)
+        {
+            v[(l^x)%n].push_back(y);
+        }
+        else
+        {
+            l = v[(l^x)%n][y%((int)v[(l^x)%n].size())];
+            cout<<l<<endl;
+        }
+    }
+    return 0;
+}
